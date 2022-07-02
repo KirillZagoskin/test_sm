@@ -1,0 +1,9 @@
+{% extends 'sreda/main_page.html' %}
+
+
+{% block content %}
+    
+    {% for question in questions %}
+        {% include 'sreda/includes/question_card_template.html' %}
+    {% endfor %}
+{% endblock  %} 

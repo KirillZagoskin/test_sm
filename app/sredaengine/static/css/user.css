@@ -1,0 +1,173 @@
+/* user header styles */
+main {
+    margin-top: unset;
+}
+
+.back-button {
+    margin-left: 15px;
+    height: 55px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    width: 20px;
+}
+
+.header-middle {
+    display: inline-block;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 14px;
+    padding-right: 10px;
+    padding-left: 15px;
+    width: 100%;
+    color: #302F30;
+}
+
+.header-right {
+    visibility: hidden;
+}
+
+.header-title, .header-rating {
+    display: inline-block;
+    font-family: 'Roboto';
+    line-height: 100%;
+}
+
+.header-rating {
+    color: #8E8E8E;
+    font-size: 10px;
+    vertical-align: middle;
+}
+
+.header-rating.positive {
+    color: #0C783A;
+}
+
+.header-rating.negative {
+    color: #D91818;
+}
+
+.header-subtitle {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 400;
+    color: #706E70;
+}
+
+.userpage-cover {
+    background: url(img/default-cover.jpg) no-repeat;
+    height: 200px;
+    position: relative;
+    padding: 0 15px;
+    background-position: bottom;
+    background-size: cover;
+}
+
+.user-about {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+}
+
+.user-img {
+    display: inline-block;
+    height: 90px;
+    border: #FFF 3px solid;
+    border-radius: 50%;
+    margin-top: -47px;
+    z-index: 1;
+}
+
+.user-buttons {
+    padding-top: 12px;
+    font-family: 'Roboto';
+}
+
+.user-buttons .separator {
+    color: #706E70;
+    padding-right: 6px;
+}
+
+.subscribe-btn {
+    font-family: 'Roboto';
+    border: none;
+    outline: none;
+    color: #FFF;
+    background-color: #0C783A;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 10px;
+}
+
+.user-details {
+    font-family: 'Roboto';
+    margin: 20px 15px 12px;
+}
+
+.user-details .user-name {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.user-details .user-rating {
+    font-size: 12px;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.details-sub {
+    margin-top: 3px;
+    font-size: 12px;
+    display: flex;
+}
+
+.details-sub div {
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.details-sub .count {
+    margin: unset;
+    font-weight: 500;
+}
+
+.user-description {
+    margin-top: 12px;
+    font-size: 12px;
+}
+
+.user-id, .details-bottom {
+    color: #706E70;
+}
+
+.details-bottom {
+    font-size: 12px;
+    display: flex;
+    padding-top: 12px;
+}
+
+.details-bottom > *, .details-bottom div {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.location-icon {
+    width: 12px;
+    margin-right: 6px;
+    height: 14px;
+}
+
+.tab {
+    margin-top: unset;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-bottom: #F2EFF2 solid 1px;
+    align-items: center;
+    background-color: #FFF;
+    position: unset;
+}

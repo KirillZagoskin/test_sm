@@ -1,0 +1,70 @@
+{% load static %}
+<div class="blog-post">
+    <a href="{{ post.get_absolute_url }}" class="post-wrap">
+        {% if post.header_image %}
+        <img class="post-img" src="{{ post.header_image.url }}"/>
+        {% endif %}
+        <div class="content-type">{{post.type_content}}</div>
+        <h2 class="title">{{post.title}}</h2>
+        <div class="subtitle">{{post.subtitle}}</div>
+    </a>
+    <div class="published-container">
+        <div class="img-container">
+            <a href="#"><img class="community-img" src="{{ post.community.pic.url }}"/></a>
+            <a href="#"><img class="author-img" src="{{ post.author.profile.profile_pic.url }}"/></a>
+        </div>
+        <div class="publishing-info">
+            <h3 class="written-by"><a href="#">{{post.community.title}}</a></h3>
+            <button onclick="actionsFunction()" class=" separator post-actions-button">
+                &#x2022;&#x2022;&#x2022;
+                <div id="actionsDropdown {{post.pk}}" class="post-actions-content">
+                    <a href="#">Подписатсья</a>
+                    <a href="#">Пожаловаться</a>
+                </div>
+            </button>
+            <div class="author-date">
+                <div class="author"><a href="#">{{post.author.first_name}} {{post.author.last_name}}</a></div>
+                <div class="separator">&#x2022;</div>
+                <div class="date">{{post.date_pub|date:'d-m'}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="tags">
+        <ul>
+            {% for topic in post.topics.all %}
+            <li><a href="#">{{topic.title}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="reaction-bar">
+        <div class="interaction-container">
+            <div class="reaction"><img src="{% static 'icons/comments-icon.svg'%}" /><div class="comment-count">2</div></div>
+            <div class="reaction"><img src="{% static 'icons/bookmark-icon.svg'%}"></div>
+            <div class="reaction"><img src="{% static 'icons/share-icon.svg'%}"/></div>
+        </div>
+        <div class="score-container">
+            <div class="reaction score"><img src="{% static 'icons/minus-icon.svg'%}"/></div>
+            <div class="reaction score-count">{{post.rating}}</div>
+            <div class="reaction score"><img src="{% static 'icons/plus-icon.svg'%}"/></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function actionsFunction() {
+        document.getElementById("actionsDropdown {{post.pk}}").classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.post-actions-button')) {
+        var dropdowns = document.getElementsByClassName("post-actions-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+            }
+        }
+        }
+    }
+</script>

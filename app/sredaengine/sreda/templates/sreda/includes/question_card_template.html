@@ -1,0 +1,52 @@
+{% load static %}
+<div class="blog-post">
+    <a href="#" class="question-wrap">
+        <div class="img-wrap">
+            <img class="post-img question-img" src="{{ question.header_image.url }}"/>
+            <div class="question-content overlay">
+                <div class="question-info">
+                    <div class="content-type">{{ question.type_content }}</div>
+                    <h2 class="title">{{ question.title }}</h2>
+                    <div class="author">{{ question.author.first_name }} {{ question.author.last_name }}</div>
+                </div>
+            </div>
+        </div>
+    </a>    
+    <div class="published-container">
+        <div class="img-container">
+            <a href="#"><img class="author-img single-author" src="{{ question.answer.get.author.profile.profile_pic.url }}"/></a>
+
+        </div>
+        <div class="publishing-info">
+            <h3 class="written-by"><a href="#">{{question.answer.get.author.first_name}} {{question.answer.get.author.last_name}}</a></h3>
+            <div class="separator">&#x2022;&#x2022;&#x2022;</div>
+            <div class="author-date answer-author">
+                <div class="author"><a href="#">@{{question.answer.get.author.username}}</a></div>
+                <div class="separator">&#x2022;</div>
+                <div class="date">5 мая</div>
+            </div>
+        </div>
+        <div class="question-answer">
+            <p> {{question.answer.get.body}}<button class="read-more">(далее)</button></p>
+        </div>
+    </div>
+    <div class="tags">
+        <ul>
+            {% for topic in question.topics.all %}
+            <li><a href="#">{{topic.title}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="reaction-bar">
+        <div class="interaction-container">
+            <div class="reaction"><img src="{% static 'icons/comments-icon.svg'%}" /><div class="comment-count">2</div></div>
+            <div class="reaction"><img src="{% static 'icons/bookmark-icon.svg'%}"></div>
+            <div class="reaction"><img src="{% static 'icons/share-icon.svg'%}"/></div>
+        </div>
+        <div class="score-container">
+            <div class="reaction score"><img src="{% static 'icons/minus-icon.svg'%}"/></div>
+            <div class="reaction score-count">34</div>
+            <div class="reaction score"><img src="{% static 'icons/plus-icon.svg'%}"/></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,131 @@
+{% extends 'base_template.html' %}
+{% load static %}
+
+{% block header %}
+    <header id="header">
+        <div class="header-left">
+            <button class="back-button" href="{% url 'home_url' %}" style="background: url({% static 'icons/back-icon.svg'%}) no-repeat;background-size: 14px;background-position: center;"></button>
+        </div>
+        <div class="header-middle">
+            <div>
+                <div class="header-title">{{post.type_content}}</div>
+                <div class="header-rating">{{post.rating}}</div>
+            </div>
+            <div class="header-subtitle">{% for topic in post.topics.all %}{{topic.title}} {%endfor%}</div>
+        </div>
+        <div class="header-right">
+            <div class="separator">&#x2022;&#x2022;&#x2022;</div>
+        </div>
+    </header>
+{% endblock header %}
+
+
+            {% block content %}
+            <div class="blog-post">
+                <div class="post-wrap">
+                    <h2 class="title">{{post.title}}</h2>
+                    <div class="subtitle">{{post.subtitle}}</div>
+                    <div class="publishing-info open-post">
+                        <div class="author-date">
+                            <div class="date">{{post.date_pub|date:'d-m-Y H:i'}}</div>
+                        </div>
+                        <div class="author">
+                            <a href="#">{{post.community.title}}</a>
+                            <div class="separator">&#x2022;</div>
+                            <a href="#">{{post.author.first_name}} {{post.author.last_name}}</a>
+                        </div>
+                    </div>
+                </div>
+                <img class="post-img" id="post-img" src="{{ post.header_image.url }}"/>
+                <div class="post-body">
+                    {{post.body|safe}}
+                </div>
+                <div class="published-container">
+                    <div class="img-container">
+                        <a href="#"><img class="community-img" src="{{ post.community.pic.url }}"/></a>
+                        <a href="#"><img class="author-img" src="{{ post.author.profile.profile_pic.url }}"/></a>
+                    </div>
+                    <div class="publishing-info">
+                        <h3 class="written-by"><a href="#">{{post.community.title}}</a></h3>
+                        <div class="author-date">
+                            <div class="author"><a href="#">{{post.author.first_name}} {{post.author.last_name}}</a></div>
+                        </div>
+                    </div>
+                    <button class="subscribe-btn">Подписаться</button>
+                </div>
+                <div class="tags">
+                    <ul>
+                        {% for topic in post.topics.all %}
+                        <li><a href="#">{{topic.title}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="reaction-bar">
+                    <div class="interaction-container">
+                        <div class="reaction"><img src="{% static 'icons/comments-icon.svg'%}" /><div class="comment-count">2</div></div>
+                        <div class="reaction"><img src="{% static 'icons/bookmark-icon.svg'%}"></div>
+                        <div class="reaction"><img src="{% static 'icons/share-icon.svg'%}"/></div>
+                    </div>
+                    <div class="score-container">
+                        <div class="reaction score"><img src="{% static 'icons/minus-icon.svg'%}"/></div>
+                        <div class="reaction score-count">{{post.rating}}</div>
+                        <div class="reaction score"><img src="{% static 'icons/plus-icon.svg'%}"/></div>
+                    </div>
+                </div>
+            </div>
+            {% endblock content %}
+
+        {% block comments %}
+        <div class="comment-section">
+            <h2 class="comment-section-header">Комментарии</h2>
+            <div class="comment">
+                <div class="input-container">
+                    <textarea name="comment-input" placeholder="Написать комментарий..."></textarea>
+                    <div class="button-container">
+                        <button class="comment-btn">Отправить</button>
+                    </div>
+                </div>
+                <div class="comment-info">
+                    <div class="published-info">
+                        <a href="#"><img class="comment-img" src="img/comment-img.jpg"/></a>
+                        <div class="comment-author-date">
+                            <h3 class="comment-author">Максим Ряшин</h3>
+                            <div class="comment-date">5 мая 2022</div>
+                        </div>
+                    </div>
+                    <div class="score-container">
+                        <div class="reaction score"><img src="img/minus-icon.svg"/></div>
+                        <div class="reaction score-count negative">−2</div>
+                        <div class="reaction score"><img src="img/plus-icon.svg"/></div>
+                    </div>
+                </div>
+                <p class="comment-body">Прямых выборов мэра не будет!</p>
+                <div class="comment-actions">
+                    <a href="#">Ответить</a>
+                    <div class="separator">&#x2022;&#x2022;&#x2022;</div>
+                </div>
+            </div>
+            <div class="comment answer">
+                <div class="comment-info">
+                    <div class="published-info">
+                        <a href="#"><img class="comment-img" src="img/author.png"/></a>
+                        <div class="comment-author-date">
+                            <h3 class="comment-author">Полина Змановская</h3>
+                            <div class="comment-date">6 мая 2022</div>
+                        </div>
+                    </div>
+                    <div class="score-container">
+                        <div class="reaction score"><img src="img/minus-icon.svg"/></div>
+                        <div class="reaction score-count positive">34</div>
+                        <div class="reaction score"><img src="img/plus-icon.svg"/></div>
+                    </div>
+                </div>
+                <p class="comment-body">Будет в Прекрасном Ханты-Мансийске Будущего!</p>
+                <div class="comment-actions">
+                    <a href="#">Ответить</a>
+                    <div class="separator">&#x2022;&#x2022;&#x2022;</div>
+                </div>
+            </div>
+        </div>
+        {% endblock comments %}
+

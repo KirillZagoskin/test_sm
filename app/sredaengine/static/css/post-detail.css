@@ -1,0 +1,154 @@
+main {
+    margin-top: 55px;
+}
+.blog {
+    padding-top: 12px;
+}
+header {
+    transition: top 0.3s;
+}
+
+.open-post div {
+    padding-top: 3px;
+}
+
+#post-img {
+    margin: 0 -15px;
+    width: 100vw;
+}
+
+.open-post {
+    display: inline-block;
+    color: #706E70;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.post-body p {
+    color: #302F30;
+    font-weight: 400;
+}
+
+.post-body h3 {
+    font-size: 16px;
+    font-weight: 500;
+
+}
+
+.subscribe-btn {
+    vertical-align: top;
+    float: right;
+}
+
+.comment-section {
+    margin: 0 15px;
+    font-family: 'Roboto';
+}
+
+.comment-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-img, .comment-author-date {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.comment-date {
+    color:#706E70;
+    font-size: 12px;
+}
+
+.comment-section h2 {
+    font-size: 16px;
+    margin-bottom: unset;
+}
+
+.input-container {
+    margin-bottom: 12px;
+}
+
+.comment textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    padding: 12px 10px;
+    border-radius: 5px;
+    border: #F2EFF2 solid 1px;
+    word-break: break-word;
+    resize: none;
+    font-family: 'Roboto';
+    background: #FFF;
+    box-shadow: 0px 1px 4px 1px rgba(12, 120, 58, 0.1);
+}
+
+.comment textarea::placeholder {
+    color: #706E70;
+    font-size: 14px;
+}
+
+.comment textarea:focus {
+    border: #0C783A solid 1px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: right;
+}
+.comment button {
+    font-family: 'Roboto';
+    border: none;
+    outline: none;
+    color: #FFF;
+    background-color: #0C783A;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 10px;
+    margin: 12px 0;
+}
+
+.comment .comment-img {
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    border: #FFF 2px solid;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.comment h3 {
+    font-size: 15px;
+    margin: unset;
+    color: #302F30;
+    font-weight: 500;
+}
+
+.comment-actions {
+    color: #706E70;
+    font-size: 14px;
+}
+.comment-actions a {
+    padding-right: 6px;
+}
+.comment {
+    padding: 10px 0 20px;
+}
+
+.comment.answer {
+    border-left: 1px solid #DBD7D8;
+    padding-left: 15px;
+}
+
+@media screen and (min-width: 541px) {
+    .comment textarea {
+        box-shadow: unset;
+    } 
+    .comment textarea:hover {
+        box-shadow: 0px 1px 4px 1px rgba(12, 120, 58, 0.1);
+    }
+}

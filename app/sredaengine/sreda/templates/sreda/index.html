@@ -1,0 +1,11 @@
+{% extends 'sreda/main_page.html' %}
+
+
+{% block content %}
+    
+    {% for post in posts %}
+    {% if post.on_main %}
+        {% include 'sreda/includes/post_card_template.html' %}
+    {% endif %}
+    {% endfor %}
+{% endblock  %} 
